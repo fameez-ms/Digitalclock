@@ -1,0 +1,16 @@
+from tkinter import * # This imports the required modules from Tkinter and time
+from tkinter.ttk import *
+from time import strftime
+
+root = Tk()   # This creates the main window and sets its title to "CLOCK"
+root.title("DIGITAL CLOCK")
+
+def time():
+    string=strftime('%H:%M:%S %p')
+    label.config(text=string)
+    label.after(1000,time) # the function to be called again after 1000 milliseconds (1 second)
+
+label=Label(root,font=("ds-digital",80),background = "black",foreground = "white")
+label.pack(anchor='center') # The label is packed in the center of the root window
+time()
+mainloop()
